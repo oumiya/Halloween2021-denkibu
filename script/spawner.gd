@@ -13,4 +13,3 @@ func _on_Timer_timeout():
 	temp.translation.x += rng.randf_range(-6.4, 6.4)
 	temp.translation.y = 0
 	temp.translation.z -= 40
-	print(temp.translation)

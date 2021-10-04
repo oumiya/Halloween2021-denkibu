@@ -26,5 +26,10 @@ func _physics_process(delta):
 			translation.x = _x_limit
 	if Input.is_action_just_pressed("shot"):
 		var b = bullet.instance()
-		b.translation = global_transform.origin
-		get_parent().get_parent().add_child(b)
+		get_node("../../").add_child(b)
+		b.translation = translation
+		b.translation.y = 0
+		b.translation.z = get_parent().translation.z
+		b.translation.z += translation.z
+		b.translation.z -= 0.5
+		b.set_target(get_node("../../AimTarget"))

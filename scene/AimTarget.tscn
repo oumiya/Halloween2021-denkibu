@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://script/AimTarget.gd" type="Script" id=1]
+
+[node name="AimTarget" type="CSGTorus"]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37722e-08, 0, 4.37722e-08, 1, -4.37114e-08, 0, 0, 0 )
+inner_radius = 1.278
+outer_radius = 1.759
+sides = 12
+script = ExtResource( 1 )

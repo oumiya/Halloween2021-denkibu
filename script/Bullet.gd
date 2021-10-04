@@ -1,24 +1,21 @@
 extends CSGSphere
 export var speed = 50
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var _target
+var _vel = Vector3()
 
+func set_target(n):
+	_target = n
+	var rad = atan2(_target.translation.z - translation.z, _target.translation.x - translation.x)
+	_vel.x = cos(rad)
+	_vel.z = sin(rad)
+	var rad2 = atan2(_target.translation.y - translation.y, _target.translation.z - translation.z)
+	_vel.y = sin(rad2)
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 func _physics_process(delta):
-	translation.z -= delta * speed
+	translation += _vel * delta * speed
 
 func _on_Area_area_entered(area):
 	if area.is_in_group("Enemy"):
 		area.get_parent().queue_free()
 		queue_free()
-	pass # Replace with function body.
